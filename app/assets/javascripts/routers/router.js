@@ -18,7 +18,7 @@ XiFinalProject.Routers.Router = Backbone.Router.extend({
 	},
 
 	show: function(id){
-		var iceCream = this.iceCreams.get(id) //getOrFetch
+		var iceCream = this.iceCreams.getOrFetch(id)
 
 		var showView = new XiFinalProject.Views.IceCreamShow({
 			model: iceCream

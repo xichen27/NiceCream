@@ -4,8 +4,8 @@
 	<br>
 	<div class="reviews-list">
 		<% ice_cream.reviews().each(function(review){ %>
-			<%= review.get("rating") %>
-			<%= review.get("content") %>
+			<li><%= review.get("rating") %>: 
+			<%= review.get("content") %></li>
 		<% }) %>
 
 	</div>
