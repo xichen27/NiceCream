@@ -1,2 +1,0 @@
-class IceBoxesController < ApplicationController
-end

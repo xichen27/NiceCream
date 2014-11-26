@@ -10,11 +10,11 @@ class IceCream < ActiveRecord::Base
 		source: :user
 	)
 
-	has_many :refregiratings
+	has_many :refrigeratings
 
 	has_many(
 		:nice_boxes,
-		through: :refregiratings,
+		through: :refrigeratings,
 		source: :nice_box
 	)
 

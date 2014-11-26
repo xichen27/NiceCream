@@ -7,8 +7,8 @@ module Api
 		end
 
 		def show
-			@ice_cream = IceCream.includes(:reviews).find(params[:id])
-			render json: @ice_cream, include: :reviews
+			@ice_cream = IceCream.includes(:reviews, nice_boxes: :fans).find(params[:id])
+			render json: @ice_cream, include: :reviews, nice_boxes: :fans
 		end
 	end
 end

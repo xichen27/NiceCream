@@ -1,13 +1,13 @@
 class NiceBox < ActiveRecord::Base
 	validates :name, :user_id, presence: true
 
-	has_many :refregiratings
+	has_many :refrigeratings
 
 	has_many(
-		:refregirated_ice_creams,
-		through: :refregiratings,
+		:refrigerated_ice_creams,
+		through: :refrigeratings,
 		source: :ice_cream
 	)
 
-	belongs_to: :user
+	belongs_to :user
 end

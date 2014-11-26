@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20141126180251) do
     t.datetime "updated_at"
   end
 
-  create_table "refrigerating", force: true do |t|
+  create_table "refrigeratings", force: true do |t|
     t.integer  "ice_cream_id", null: false
     t.integer  "nice_box_id",  null: false
     t.datetime "created_at"

@@ -15,9 +15,9 @@ class User < ActiveRecord::Base
   has_many :nice_boxes
 
   has_many(
-    :refregirated_ice_creams,
+    :refrigerated_ice_creams,
     through: :nice_boxes,
-    source: :refregirated_ice_creams
+    source: :refrigerated_ice_creams
   )
 
   after_initialize :ensure_session_token
