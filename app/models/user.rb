@@ -12,6 +12,14 @@ class User < ActiveRecord::Base
     source: :ice_cream
   )
 
+  has_many :nice_boxes
+
+  has_many(
+    :refregirated_ice_creams,
+    through: :nice_boxes,
+    source: :refregirated_ice_creams
+  )
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)

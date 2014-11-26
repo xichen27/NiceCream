@@ -9,4 +9,18 @@ class IceCream < ActiveRecord::Base
 		through: :reviews,
 		source: :user
 	)
+
+	has_many :refregiratings
+
+	has_many(
+		:nice_boxes,
+		through: :refregiratings,
+		source: :nice_box
+	)
+
+	has_many(
+		:fans,
+		through: :nice_boxes,
+		source: :user
+	)
 end

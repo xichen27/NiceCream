@@ -1,0 +1,2 @@
+class RefregiratingsController < ApplicationController
+end
