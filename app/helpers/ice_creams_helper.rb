@@ -1,0 +1,2 @@
+module IceCreamsHelper
+end

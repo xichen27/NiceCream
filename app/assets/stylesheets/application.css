@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.ice-cream-item{
+	float: left;
+	border-style: solid;
+	border-color: black;
+	padding: 30px;
+	margin: 30px;
+}
