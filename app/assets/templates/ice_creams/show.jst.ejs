@@ -2,11 +2,9 @@
 	<img src="<%=ice_cream.get("image_url")%>" style="width:200px;height:200px">
 	<h2><%= ice_cream.get("flavor") %><h2>
 	<br>
+	
 	<div class="reviews-list">
-		<% ice_cream.reviews().each(function(review){ %>
-			<li><%= review.get("rating") %>: 
-			<%= review.get("content") %></li>
-		<% }) %>
+
 
 	</div>
 </div>
