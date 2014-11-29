@@ -6,9 +6,12 @@ window.XiFinalProject = {
   initialize: function() {
   	this.iceCreams = new XiFinalProject.Collections.IceCreams();
   	this.iceCreams.fetch();
+    this.users = new XiFinalProject.Collections.Users();
+    this.users.fetch()
     new XiFinalProject.Routers.Router({
     	$rootEl: $("#main"),
-    	iceCreams: this.iceCreams
+    	iceCreams: this.iceCreams,
+      users: this.users
     });
     Backbone.history.start()
   }

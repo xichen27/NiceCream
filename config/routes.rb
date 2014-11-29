@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   	resources :reviews, only: [:create, :show]
   	resources :nice_boxes
   	resources :refrigeratings, only: [:create, :destroy]
-  	resources :users, only: [:show]
+  	resources :users
   end
 end
 
