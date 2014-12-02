@@ -7,7 +7,7 @@ module Api
 		end
 
 		def show
-			@user = User.includes(:reviews, :nice_boxes, :reviewed_ice_creams, :refrigerated_ice_creams).find(params[:id])
+			@user = User.includes(:reviews, :reviewed_ice_creams, :refrigerated_ice_creams).find(params[:id])
 			render :show
 		end
 	end

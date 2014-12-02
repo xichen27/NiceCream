@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
   	resources :ice_creams
   	resources :reviews, only: [:create, :show]
-  	resources :nice_boxes
   	resources :refrigeratings, only: [:create, :destroy]
   	resources :users
   end

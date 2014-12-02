@@ -12,12 +12,12 @@ class User < ActiveRecord::Base
     source: :ice_cream
   )
 
-  has_many :nice_boxes
+  has_many :refrigeratings
 
   has_many(
     :refrigerated_ice_creams,
-    through: :nice_boxes,
-    source: :refrigerated_ice_creams
+    through: :refrigeratings,
+    source: :ice_cream
   )
 
   after_initialize :ensure_session_token
