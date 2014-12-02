@@ -1,3 +1,7 @@
+<% if (user.id != currentUser.id){ %>
+	<a href="#home">Back to home</a>
+<% } %>
+
 <div class="user-show">
 	<h2><%= user.get("username") %><h2>
 	<br>
@@ -7,7 +11,11 @@
 	<h4>Reviewed Ice-creams</h4>
 	<div class="reviewed-ice-creams">
 	</div>
+	<br>
+	<br>
 	<h4>My Nice Box</h4>
 	<div class="my-nice-box">
+		<div class="refrigerated-ice-creams">
+		</div>
 	</div>
 </div>

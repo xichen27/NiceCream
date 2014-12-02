@@ -13,3 +13,7 @@ json.fans @ice_cream.fans do |json, fan|
 	json.extract!(fan, :id, :name)
 end
 
+json.creamery @ice_cream.creamery do |json|
+	json.extract!(creamery, :id, :name, :location)
+end
+

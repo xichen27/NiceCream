@@ -4,13 +4,15 @@ XiFinalProject.Routers.Router = Backbone.Router.extend({
 		this.$rootEl = options.$rootEl;
 		this.iceCreams = options.iceCreams;
 		this.users = options.users;
+		this.currentUser = options. currentUser;
 	},
 
 	routes: {
 		"": "index",
 		"ice_creams/:id": "show",
+		"users": "usersAll",
 		"users/:id": "userShow",
-		"users": "usersAll"
+		"home": "currentUserShow"
 	},
 
 	index: function(){
@@ -23,7 +25,16 @@ XiFinalProject.Routers.Router = Backbone.Router.extend({
 	userShow: function(id){
 		var user = this.users.getOrFetch(id)
 		var userView = new XiFinalProject.Views.UserShow({
-			model: user
+			model: user,
+			currentUser: this.currentUser
+		})
+		this.$rootEl.html(userView.render().$el)
+	},
+
+	currentUserShow: function(){
+		var userView = new XiFinalProject.Views.UserShow({
+			model: this.currentUser,
+			currentUser: this.currentUser
 		})
 		this.$rootEl.html(userView.render().$el)
 	},

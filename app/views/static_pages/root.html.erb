@@ -2,5 +2,7 @@
   <div id="main"></div>
 </div>
 <script>
-$(XiFinalProject.initialize.bind(this));
+var _currentUserJSON = '<%= current_user.to_json(only: [:id, :username]).html_safe %>';
+// debugger
+// $(XiFinalProject.initialize.bind(this));
 </script>

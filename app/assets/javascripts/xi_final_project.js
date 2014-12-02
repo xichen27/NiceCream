@@ -7,20 +7,24 @@ window.XiFinalProject = {
   	this.iceCreams = new XiFinalProject.Collections.IceCreams();
   	this.iceCreams.fetch();
     this.users = new XiFinalProject.Collections.Users();
-    this.users.fetch()
+    this.users.fetch();
+    // debugger
+    var currentUser = new XiFinalProject.Models.User(JSON.parse(_currentUserJSON));
+    currentUser.fetch();
     new XiFinalProject.Routers.Router({
     	$rootEl: $("#main"),
     	iceCreams: this.iceCreams,
-      users: this.users
+      users: this.users,
+      currentUser: currentUser
     });
     Backbone.history.start()
   }
 
 };
 
-// $(document).ready(function(){
-//   XiFinalProject.initialize();
-// });
+$(document).ready(function(){
+  XiFinalProject.initialize();
+});
 
 Backbone.CompositeView = Backbone.View.extend({
   addSubview: function (selector, subview) {

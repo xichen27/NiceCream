@@ -23,4 +23,6 @@ class IceCream < ActiveRecord::Base
 		through: :nice_boxes,
 		source: :user
 	)
+
+	belongs_to :creamery
 end
