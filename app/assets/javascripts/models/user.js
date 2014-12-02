@@ -19,14 +19,14 @@ XiFinalProject.Models.User = Backbone.Model.extend({
 		return this._refrigeratedIceCreams
 	},
 
-	niceBoxes: function(){
-		if (!this._niceBoxes){
-			this._niceBoxes = new XiFinalProject.Collections.NiceBoxes([], {
-				user: this
-			})
-		}
-		return this._niceBoxes
-	},
+	// niceBoxes: function(){
+	// 	if (!this._niceBoxes){
+	// 		this._niceBoxes = new XiFinalProject.Collections.NiceBoxes([], {
+	// 			user: this
+	// 		})
+	// 	}
+	// 	return this._niceBoxes
+	// },
 
 	parse: function(response){
 		if (response.reviewed_ice_creams){
@@ -34,10 +34,10 @@ XiFinalProject.Models.User = Backbone.Model.extend({
 			delete response.reviewed_ice_creams
 		}; 
 
-		if (response.nice_boxes){
-			this.niceBoxes().set(response.nice_boxes, {parse: true});
-			delete response.nice_boxes
-		};
+		// if (response.nice_boxes){
+		// 	this.niceBoxes().set(response.nice_boxes, {parse: true});
+		// 	delete response.nice_boxes
+		// };
 
 		if (response.refrigerated_ice_creams){
 			this.refrigeratedIceCreams().set(response.refrigerated_ice_creams, {parse: true});

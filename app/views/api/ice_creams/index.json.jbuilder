@@ -1,0 +1,1 @@
+json.array! @ice_creams, partial: "api/ice_creams/ice_cream", as: :ice_cream

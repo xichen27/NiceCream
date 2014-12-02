@@ -12,11 +12,11 @@ IceCream.create!(flavor: "vanilla", creamery_id: 1, image_url: "http://kitchenco
 IceCream.create!(flavor: "strawberry", creamery_id: 1, image_url: "http://forum-media.finanzen.net/board/anonymize/attachment.m?aid=625503")
 
 #reviews
-IceCream.find(1).reviews.create(user_id: 1)
-IceCream.find(1).reviews.create(user_id: 2)
-IceCream.find(2).reviews.create(user_id: 1)
-IceCream.find(2).reviews.create(user_id: 3)
-IceCream.find(3).reviews.create(user_id: 1)
+IceCream.find(1).reviews.create(user_id: 1, rating: 5)
+IceCream.find(1).reviews.create(user_id: 2, rating: 3)
+IceCream.find(2).reviews.create(user_id: 1, rating: 2)
+IceCream.find(2).reviews.create(user_id: 3, rating: 4)
+IceCream.find(3).reviews.create(user_id: 1, rating: 1)
 
 #refrigerating(ice_cream_id, nice_box_id)
 Refrigerating.create!(ice_cream_id: 1, nice_box_id: 1)

@@ -4,7 +4,7 @@ XiFinalProject.Routers.Router = Backbone.Router.extend({
 		this.$rootEl = options.$rootEl;
 		this.iceCreams = options.iceCreams;
 		this.users = options.users;
-		this.currentUser = options. currentUser;
+		// this.currentUser = options. currentUser;
 	},
 
 	routes: {
@@ -26,7 +26,6 @@ XiFinalProject.Routers.Router = Backbone.Router.extend({
 		var user = this.users.getOrFetch(id)
 		var userView = new XiFinalProject.Views.UserShow({
 			model: user,
-			currentUser: this.currentUser
 		})
 		this.$rootEl.html(userView.render().$el)
 	},
@@ -34,7 +33,6 @@ XiFinalProject.Routers.Router = Backbone.Router.extend({
 	currentUserShow: function(){
 		var userView = new XiFinalProject.Views.UserShow({
 			model: this.currentUser,
-			currentUser: this.currentUser
 		})
 		this.$rootEl.html(userView.render().$el)
 	},

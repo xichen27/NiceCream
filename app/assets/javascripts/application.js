@@ -15,7 +15,8 @@
 //= require turbolinks
 //= require underscore
 //= require backbone
-//= require raty.min.js
+//= require bootstrap
+//= require jquery.raty.min.js
 //= require xi_final_project
 //= require_tree ../templates
 //= require_tree ./models

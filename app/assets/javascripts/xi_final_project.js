@@ -9,13 +9,13 @@ window.XiFinalProject = {
     this.users = new XiFinalProject.Collections.Users();
     this.users.fetch();
     // debugger
-    var currentUser = new XiFinalProject.Models.User(JSON.parse(_currentUserJSON));
-    currentUser.fetch();
+    this.currentUser = new XiFinalProject.Models.User(JSON.parse(_currentUserJSON));
+    this.currentUser.fetch();
     new XiFinalProject.Routers.Router({
     	$rootEl: $("#main"),
     	iceCreams: this.iceCreams,
-      users: this.users,
-      currentUser: currentUser
+      users: this.users
+      // currentUser: currentUser
     });
     Backbone.history.start()
   }
@@ -91,6 +91,3 @@ Backbone.CompositeView = Backbone.View.extend({
     }
   }
 });
-
-
-
