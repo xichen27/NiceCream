@@ -10,11 +10,22 @@ XiFinalProject.Models.IceCream = Backbone.Model.extend({
 		return this._reviews
 	},
 
+	// averageRating: function(){
+	// 	if(!this._averageRating){
+	// 		this._averageRating = 0
+	// 	}
+	// 	return this._averageRating;
+	// },
+
 	parse: function(response){
 		if(response.reviews){
 			this.reviews().set(response.reviews, {parse: true});
 			delete response.reviews
-		}
+		};
+		// if(response.average_rating){
+		// 	this._averageRating = response.average_rating
+		// 	delete response.average_rating
+		// }
 		return response
 	}
 

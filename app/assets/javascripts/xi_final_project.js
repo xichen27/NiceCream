@@ -4,17 +4,19 @@ window.XiFinalProject = {
   Views: {},
   Routers: {},
   initialize: function() {
-  	this.iceCreams = new XiFinalProject.Collections.IceCreams();
-  	this.iceCreams.fetch();
-    this.users = new XiFinalProject.Collections.Users();
-    this.users.fetch();
-    // debugger
-    this.currentUser = new XiFinalProject.Models.User(JSON.parse(_currentUserJSON));
+  	var iceCreams = new XiFinalProject.Collections.IceCreams();
+  	iceCreams.fetch();
+    var users = new XiFinalProject.Collections.Users();
+    users.fetch();
+
+    this.currentUser = new XiFinalProject.Models
+          .User(JSON.parse(_currentUserJSON));
     this.currentUser.fetch();
+
     new XiFinalProject.Routers.Router({
     	$rootEl: $("#main"),
-    	iceCreams: this.iceCreams,
-      users: this.users
+    	iceCreams: iceCreams,
+      users: users
       // currentUser: currentUser
     });
     Backbone.history.start()

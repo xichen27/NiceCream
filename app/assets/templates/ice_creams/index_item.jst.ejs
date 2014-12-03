@@ -4,14 +4,14 @@
 <%= ice_cream.get("flavor") %></a>
 <br>
 <p>rating</p>
-<div class='rating'></div>
-
-<div class="average-rating">
+<div id="average-rating-<%= ice_cream.get('id') %>">
 <p>Average rating</p>
 </div>
 
-<div class="my-rating">
+<div id="my-rating-<%= ice_cream.get('id') %>">
 <p>Your rating</p>
 </div>
 
-<p>put in the fridge</p>
+<% if(!XiFinalProject.currentUser.reviewedIceCreams().get("<%= ice_cream.get('id') %>") && !XiFinalProject.currentUser.refrigeratedIceCreams().get("<%= ice_cream.get('id') %>")){ %>
+<button type="button" data-ice-cream-id="<%= ice_cream.get('id') %>">NiceBox It</button>
+<% } %>

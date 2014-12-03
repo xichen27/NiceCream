@@ -12,7 +12,7 @@ XiFinalProject.Views.IceCreamsIndex = Backbone.CompositeView.extend({
 
   addIceCream: function(iceCream){
   	var iceCreamItem = new XiFinalProject.Views.IceCreamsIndexItem({
-      model: iceCream
+      model: iceCream,
     });
   	this.addSubview("#ice-cream-list", iceCreamItem)
   }, 

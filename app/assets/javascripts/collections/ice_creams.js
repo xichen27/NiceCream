@@ -9,7 +9,7 @@ XiFinalProject.Collections.IceCreams = Backbone.Collection.extend({
   		ice_cream = new XiFinalProject.Models.IceCream({id: id})
   		ice_cream.fetch({
   			success: function(){
-  				that.add(ice_cream)
+  				that.add(ice_cream, {merge:true})
   			}
   		})
   	} else {

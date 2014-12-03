@@ -2,8 +2,9 @@ module Api
 	class RefrigeratingsController  < ApiController
 
 		def create
-			@refrigerating = current_ice_cream.refrigerating.new
-			@refrigerating.user_id = current_user.id
+			# @refrigerating = current_ice_cream.refrigerating.new
+			# @refrigerating.user_id = current_user.id
+      @refrigerating = Refrigerating.new(refrigerating_params)
 			if @refrigerating.save
 				render json: @refrigerating
 			else
@@ -12,12 +13,16 @@ module Api
 		end
 
     def destroy
-      @refrigerating = refrigerating.find(params[:id])
+      @refrigerating = Refrigerating.find(params[:id])
       @refrigerating.destroy
       render json: {}
     end
 
 		private
+
+    def refrigerating_params
+      params.require(:refrigerating).permit(:user_id, :ice_cream_id)
+    end
 
     def current_ice_cream
       if params[:id]

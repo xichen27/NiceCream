@@ -1,5 +1,5 @@
-XiFinalProject.Collections.Refrigeratings = Backbone.Model.extend({
-	urlRoot: "api/refrigeratings",
+XiFinalProject.Collections.Refrigeratings = Backbone.Collection.extend({
+	url: "api/refrigeratings",
 	model: XiFinalProject.Models.Refrigerating
 
 });

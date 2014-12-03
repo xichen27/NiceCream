@@ -1,12 +1,12 @@
 json.extract!(@user, :id, :username)
 
-
 json.reviews @user.reviews do |json, review|
 	json.extract!(review, :id, :ice_cream_id, :rating, :content)
 end
 
-json.reviewed_ice_creams @user.reviewed_ice_creams do |json, reviewed_ice_creams|
-	json.extract!(reviewed_ice_creams, :id, :flavor, :creamery_id, :image_url)
+json.reviewed_ice_creams @user.reviewed_ice_creams do |json, reviewed_ice_cream|
+	json.extract!(reviewed_ice_cream, :id, :flavor, :creamery_id, :image_url)
+	json.average_rating reviewed_ice_cream.average_rating
 end
 
 json.refrigeratings @user.refrigeratings do |json, refrigerating|
@@ -15,4 +15,5 @@ end
 
 json.refrigerated_ice_creams @user.refrigerated_ice_creams do |json, refrigerated_ice_cream|
 	json.extract!(refrigerated_ice_cream, :id, :flavor, :creamery_id, :image_url)
+	json.average_rating refrigerated_ice_cream.average_rating
 end

@@ -5,8 +5,25 @@ XiFinalProject.Views.IceCreamsIndexItem = Backbone.View.extend({
 
 	initialize: function(options){
 		this.listenTo(this.model, "sync", this.render);
-		this.currentUser = options.currentUser;
-		this.listenTo(this.model, "sync", this.render);
+		this.listenTo(XiFinalProject.currentUser.reviews(), "sync add", this.render)
+		this.listenTo(XiFinalProject.currentUser.refrigeratings(), "sync add", this.render)
+	},
+
+	events: {
+		"click button": "saveFavorite"
+	},
+
+	saveFavorite: function(events){
+		var iceCreamId = $(event.currentTarget).find("button").data("ice-cream-id");
+		var newRefrigerating = new XiFinalProject.Models.Refrigerating();
+		newRefrigerating.save({
+			ice_cream_id: iceCreamId,
+			user_id: XiFinalProject.currentUser.id
+		}, {
+			success: function(){
+				XiFinalProject.currentUser.refrigeratings().add(newRefrigerating)
+			}
+		})
 	},
 
 	render: function(){
@@ -15,41 +32,47 @@ XiFinalProject.Views.IceCreamsIndexItem = Backbone.View.extend({
 		});
 		this.$el.html(content);
 		this.averageRating();
-		//this.myRating();
+		this.myRating();
 
 
 		return this
 	},
 
 	averageRating: function(){
-		this.$(".average-rating").raty({
+		this.$("#average-rating-" + this.model.id).raty({
 			readOnly: true,
-			start: 3, //this.model.averageRating
+			start: this.model.get('average_rating'),
 			path: "/assets"
 		});
 	},
 
 	myRating: function(){
-		// var myRate = this.currentUser.reviews.where(ice_cream_id === this.model.id);
-		var myRate = this.currentUser.reviews().findWhere({ice_cream_id: this.model.id});
+		var myRate = XiFinalProject.currentUser.reviews()
+					.findWhere({ ice_cream_id: this.model.id });
 		if (myRate){
-			this.$(".my-rating").rating({
+			this.$("#my-rating-" + this.model.id).raty({
 				readOnly: true,
-				start: myRate
+				start: myRate.get("rating"),
+				path: "/assets"
 			});
 		} else {
 			var that = this;
-			this.$(".my-rating").rating({
+			this.$("#my-rating-" + this.model.id).raty({
 				readOnly: false,
+				start:0,
+				path: "/assets",
 				click: function(score, event){
 					var newReview = new XiFinalProject.Models.Review();
+					var oldRefrigerating = XiFinalProject.currentUser
+								.refrigeratings().findWhere({ ice_cream_id: that.model.id });
 					newReview.save({
-						user_id: that.currentUser.id,
-						ice_cream_id: this.model.id,
+						user_id: XiFinalProject.currentUser.id,
+						ice_cream_id: that.model.id,
 						rating: score
 					}, {
 						success: function(){
-							that.currentUser.reviews.add(newReview)
+							XiFinalProject.currentUser.reviews().add(newReview)
+							oldRefrigerating.destroy()
 						}
 					})
 				}
