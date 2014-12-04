@@ -31,13 +31,6 @@ ActiveRecord::Schema.define(version: 20141202221919) do
     t.string   "image_url"
   end
 
-  create_table "refrigerating", force: true do |t|
-    t.integer  "ice_cream_id", null: false
-    t.integer  "nice_box_id",  null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "refrigeratings", force: true do |t|
     t.integer  "ice_cream_id", null: false
     t.integer  "user_id",      null: false
