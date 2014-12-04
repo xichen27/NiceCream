@@ -22,6 +22,10 @@ XiFinalProject.Views.IceCreamsIndexItem = Backbone.View.extend({
 		}, {
 			success: function(){
 				XiFinalProject.currentUser.refrigeratings().add(newRefrigerating)
+				XiFinalProject.currentUser.refrigeratedIceCreams().add(
+				XiFinalProject.Collections.iceCreams.getOrFetch(iceCreamId)
+				);
+
 			}
 		})
 	},
@@ -71,8 +75,11 @@ XiFinalProject.Views.IceCreamsIndexItem = Backbone.View.extend({
 						rating: score
 					}, {
 						success: function(){
-							XiFinalProject.currentUser.reviews().add(newReview)
-							oldRefrigerating.destroy()
+							XiFinalProject.currentUser.reviews().add(newReview);
+							XiFinalProject.currentUser.reviewedIceCreams().add(
+							XiFinalProject.Collections.iceCreams.getOrFetch(that.model.id));
+							oldRefrigerating.destroy();
+							XiFinalProject.currentUser.refrigeratedIceCreams().remove(that.model.id)
 						}
 					})
 				}

@@ -12,6 +12,11 @@
 <p>Your rating</p>
 </div>
 
-<% if(!XiFinalProject.currentUser.reviewedIceCreams().get("<%= ice_cream.get('id') %>") && !XiFinalProject.currentUser.refrigeratedIceCreams().get("<%= ice_cream.get('id') %>")){ %>
+<% if(!XiFinalProject.currentUser.reviewedIceCreams().get(ice_cream.id) && !XiFinalProject.currentUser.refrigeratedIceCreams().get(ice_cream.id)) { %>
 <button type="button" data-ice-cream-id="<%= ice_cream.get('id') %>">NiceBox It</button>
 <% } %>
+
+<% if(XiFinalProject.currentUser.refrigeratedIceCreams().get(ice_cream.id)) { %>
+<a href="#home">IceBoxed</a>
+<% } %>
+

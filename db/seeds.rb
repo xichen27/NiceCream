@@ -25,7 +25,7 @@ Refrigerating.create!(ice_cream_id: 1, user_id: 2)
 Refrigerating.create!(ice_cream_id: 3, user_id: 3)
 Refrigerating.create!(ice_cream_id: 2, user_id: 1)
 Refrigerating.create!(ice_cream_id: 2, user_id: 4)
-Refrigerating.create!(ice_cream_id: 3, user_id: 4)
+# Refrigerating.create!(ice_cream_id: 3, user_id: 4)
 
 
 #user(name)
