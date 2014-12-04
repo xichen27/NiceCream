@@ -10,24 +10,35 @@ XiFinalProject.Views.IceCreamsIndexItem = Backbone.View.extend({
 	},
 
 	events: {
-		"click button": "saveFavorite"
+		"click button": "saveFavorite",
+		"click div.my-rating": "redirect"
+	},
+
+	redirect: function(){
+		if (!XiFinalProject.currentUser.id){
+			alert("Please sign in first.")
+		}
 	},
 
 	saveFavorite: function(events){
-		var iceCreamId = $(event.currentTarget).find("button").data("ice-cream-id");
-		var newRefrigerating = new XiFinalProject.Models.Refrigerating();
-		newRefrigerating.save({
-			ice_cream_id: iceCreamId,
-			user_id: XiFinalProject.currentUser.id
-		}, {
-			success: function(){
-				XiFinalProject.currentUser.refrigeratings().add(newRefrigerating)
-				XiFinalProject.currentUser.refrigeratedIceCreams().add(
-				XiFinalProject.Collections.iceCreams.getOrFetch(iceCreamId)
-				);
+		if(XiFinalProject.currentUser.id){
+			var iceCreamId = $(event.currentTarget).find("button").data("ice-cream-id");
+			var newRefrigerating = new XiFinalProject.Models.Refrigerating();
+			newRefrigerating.save({
+				ice_cream_id: iceCreamId,
+				user_id: XiFinalProject.currentUser.id
+			}, {
+				success: function(){
+					XiFinalProject.currentUser.refrigeratings().add(newRefrigerating)
+					XiFinalProject.currentUser.refrigeratedIceCreams().add(
+					XiFinalProject.Collections.iceCreams.getOrFetch(iceCreamId)
+					);
 
-			}
-		})
+				}
+			})
+		} else {
+			alert("Please sign in first.")
+		}
 	},
 
 	render: function(){

@@ -1,0 +1,16 @@
+
+<form action="<%= session_url %>" method="post">
+
+  <label>
+    Username
+    <input type="text" name="user[username]" value="">
+  </label>
+  
+  <label>
+    Password
+    <input type="password" name="user[password]" value="">
+  </label>
+
+  <button type="submit" class="btn btn-primary navbar-btn">Sign in</button>
+</form>
+<%= render "layouts/errors" %>

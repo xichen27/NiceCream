@@ -1,17 +1,21 @@
-<h2>Sign Up</h2>
+<div id="sign-up">
+	<h1>WELCOME TO NICECREAM</h1>
 
-<%= render "layouts/errors" %>
+	<h2>Sign Up</h2>
 
-<form action="<%= users_url %>" method="post">
-  <label>
-    Username
-    <input type="text" name="user[username]" value="">
-  </label>
+	<%= render "layouts/errors" %>
 
-  <label>
-    Password
-    <input type="password" name="user[password]" value="">
-  </label>
+	<form action="<%= users_url %>" method="post">
+	  <label>
+	    Username
+	    <input type="text" name="user[username]" value="">
+	  </label>
 
-  <input type="submit" value="Sign Up">
-</form>
+	  <label>
+	    Password
+	    <input type="password" name="user[password]" value="">
+	  </label>
+
+	  <input type="submit" value="Sign Up">
+	</form>
+</div>

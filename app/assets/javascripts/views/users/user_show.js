@@ -37,7 +37,6 @@ XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
     var removalIceCream = _.find(this.subviews("div.refrigerated-ice-creams"), function(subview){
       return subview.model === iceCream
     });
-    debugger
     this.removeSubview("div.refrigerated-ice-creams", removalIceCream)
   },
 
