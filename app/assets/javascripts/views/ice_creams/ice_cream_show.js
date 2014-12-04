@@ -13,7 +13,8 @@ XiFinalProject.Views.IceCreamShow = Backbone.CompositeView.extend({
   },
 
   addReview: function(review){
-  	var reviewItem = new XiFinalProject.Views.IndexReviewIndexItem({model: review})
+
+  	var reviewItem = new XiFinalProject.Views.ReviewIndexItem({model: review})
   	this.addSubview(".reviews-list", reviewItem)
   },
 

@@ -1,6 +1,6 @@
 XiFinalProject.Views.UserReviewIndexItem = Backbone.View.extend({
 	template: JST['reviews/user_review'],
-	tagName: "li",
+	
 	className: "user-review-item",
 
 	initialize: function(options){
@@ -15,7 +15,17 @@ XiFinalProject.Views.UserReviewIndexItem = Backbone.View.extend({
 			iceCream: this.iceCream
 		})
 		this.$el.html(content)
+		this.myReview()
 		return this
-	}
+	},
+
+	myReview: function(){
+		var myRating = this.model.get("rating")
+			this.$("#my-rating-" + this.iceCream.id).raty({
+				readOnly: true,
+				start: myRating,
+				path: "/assets"
+			});
+		} 
 
 });

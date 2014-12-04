@@ -20,10 +20,7 @@
 
 .ice-cream-item{
 	float: left;
-	border-style: solid;
-	border-color: black;
 	padding: 30px;
-	margin: 30px;
 }
 
 #sign-up{
@@ -31,9 +28,100 @@
 }
 
 #main{
-	margin-top: 100px;
+	padding-top: 80px;
 }
 
 body{
-	font-family: "Papyrus"
+	font-family: "Papyrus";
+	background-color: #86d2db;
+	height: 100%
+}
+
+.rounded-corners{
+	border-radius: 5px;
+}
+
+#main{
+	width: 910px;
+	margin: 0 auto;
+	height: 100%;
+	
+}
+
+.one-column{
+	width: 450px;
+	float:left
+}
+
+.two-columns{
+	width: 910px
+}
+
+img.icecream{
+	float: left;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  border: 8px solid #d89ec7;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.icecream-info{
+	width: 340;
+	float: left;
+	margin-left: 20px
+}
+
+.user-review-item{
+
+	display: block;
+	height: 120px
+}
+
+.refrigerated-ice-creams{
+	background: white;
+	border-radius: 15px
+}
+
+.special-navbar {
+  border-radius: 80px;
+  height: 160px;
+  padding-top: 80px;
+  top: -80px;
+  width:950px;
+}
+
+.not-button{
+	background: none;
+	border: none
+}
+
+a{
+	color: black
+}
+
+a:hover{
+	text-decoration: none;
+	color: #d89ec7;
+}
+
+.recommended-ice-creams{
+	height: 100px;
+	width: 910p;
+}
+
+h3.flavor{
+	display: inline
+}
+
+p.shop{
+	display: inline
+}
+
+.icecream-profile{
+	height: 100px;
+	width: 910p;
 }

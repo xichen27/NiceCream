@@ -1,21 +1,24 @@
-<% if (user.id != currentUser.id){ %>
-	<a href="#home">Back to home</a>
-<% } %>
 
 <div class="user-show">
 	<h2><%= user.get("username") %><h2>
-	<br>
+	
 	<h4>Recommended Ice-creams</h4>
-	<div class="recommended-ice-creams">
+	<div class="recommended-list two-columns"> 
+		<div class="recommended-ice-creams">
+		</div>
 	</div>
-	<h4>Reviewed Ice-creams</h4>
-	<div class="reviewed-ice-creams">
-	</div>
-	<br>
-	<br>
-	<h4>Nice Box</h4>
-	<div class="my-nice-box">
-		<div class="refrigerated-ice-creams">
+
+	<div class="two-columns">
+		<div class="reviewed-list one-column">
+		<h4>Reviewed Ice-creams</h4>
+			<div class="reviewed-ice-creams">
+			</div>
+		</div>
+
+		<div class="my-nice-box one-column">
+			<p>Nice Box</p>
+			<div class="refrigerated-ice-creams clearfix">
+			</div>
 		</div>
 	</div>
 </div>

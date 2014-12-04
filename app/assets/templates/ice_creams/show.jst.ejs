@@ -1,12 +1,14 @@
-<a href="#home">Back to home</a>
 
 <div class="ice-cream-show">
-	<img src="<%=ice_cream.get("image_url")%>" style="width:200px;height:200px">
-	<h2><%= ice_cream.get("flavor") %><h2>
-	<br>
-	
-	<div class="reviews-list">
+	<div class="icecream-profile">
+		<img src="<%=ice_cream.get("image_url")%>" class="icecream">
+		<h2><%= ice_cream.get("flavor") %><h2>
+	</div>
+	<div class="two-columns">
+		<div class="reviews-list one-column clearfix">
+		</div>
 
-
+		<div class="friends-opinions one-column">
+		</div>
 	</div>
 </div>

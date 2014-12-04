@@ -1,10 +1,15 @@
 
-<img 
+<img class="icecream"
 	src="<%=iceCream.get("image_url")%>" 
 	style="width:100px;height:100px">
-<a 
-	href="#ice_creams/<%= iceCream.get("id") %>">
-	<%= iceCream.get("flavor") %>
-</a>
-rating: <%= review.get("rating") %>
+
+<div class="icecream-info">
+	<a 
+		href="#ice_creams/<%= iceCream.get("id") %>">
+		<h3><%= iceCream.get("flavor") %></h3>
+	</a>
+	<div class="my-rating" id="my-rating-<%= iceCream.get('id') %>">
+		<p>Your rating</p>
+	</div>
+</div>
 

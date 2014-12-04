@@ -1,4 +1,4 @@
-XiFinalProject.Views.IndexReviewIndexItem = Backbone.View.extend({
+XiFinalProject.Views.ReviewIndexItem = Backbone.View.extend({
 	template: JST['reviews/index_item'],
 	tagName: "li",
 	className: "review-item",
