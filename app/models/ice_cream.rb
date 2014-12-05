@@ -21,6 +21,10 @@ class IceCream < ActiveRecord::Base
 	belongs_to :creamery
 
 	def average_rating
-		self.reviews.sum(:rating)/self.reviews.size
+		if self.reviews.size == 0
+			return 0
+		else
+			return self.reviews.sum(:rating)/self.reviews.size
+		end
 	end
 end

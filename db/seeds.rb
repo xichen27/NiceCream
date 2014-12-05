@@ -8,8 +8,14 @@
 
 #ice-cream
 IceCream.create!(flavor: "chocolate", creamery_id: 1, image_url: "http://www.jamieoliver.com/core/images/jamie-mag/lrg_2838.jpg")
-IceCream.create!(flavor: "vanilla", creamery_id: 1, image_url: "http://kitchenconfit.wordpress.com/files/2008/08/goat-cheese-ice-cream-top-view.jpg")
+IceCream.create!(flavor: "vanilla", creamery_id: 1, image_url: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTYga80wcEEzSMfl1m29jXs3gmdDuwQZSUk_B_FbtkJJC0aZX0Zgg")
 IceCream.create!(flavor: "strawberry", creamery_id: 1, image_url: "http://forum-media.finanzen.net/board/anonymize/attachment.m?aid=625503")
+IceCream.create!(flavor: "green tea", creamery_id: 1, image_url: "http://thucphamplaza.com/wp-content/uploads/products_img/Kem-Haagen-Dazs-vi-tra-xanh.jpg")
+IceCream.create!(flavor: "mango", creamery_id: 1, image_url: "http://images.tastespotting.com/thumbnails/547837.jpg")
+IceCream.create!(flavor: "cookie dough", creamery_id: 1, image_url: "http://www.braums.com/wp-content/uploads/2012/05/PremCaramelCookDough.png")
+IceCream.create!(flavor: "coffee", creamery_id: 1, image_url: "http://www.simplyrecipes.com/wp-content/uploads/2007/04/coffee-ice-cream.jpg")
+IceCream.create!(flavor: "belgium chocolate", creamery_id: 1, image_url: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcREtr75SQJvBXQ_QuzxD9y53QuPWOmJ3jiPD4SVxYX8PHuk8JP_qA")
+
 
 #reviews
 IceCream.find(1).reviews.create(user_id: 1, rating: 5)
