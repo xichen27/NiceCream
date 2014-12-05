@@ -38,11 +38,11 @@ body{
 }
 
 .rounded-corners{
-	border-radius: 5px;
+	border-radius: px;
 }
 
 #main{
-	width: 910px;
+	width: 920px;
 	margin: 0 auto;
 	height: 100%;
 	
@@ -139,4 +139,15 @@ p.shop{
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+}
+
+div.pagination{
+	margin-left: auto;
+	margin-right: auto;
+	width: 200px
+}
+
+.logo{
+	margin-left: 250px;
+	width: 700px
 }

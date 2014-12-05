@@ -37,7 +37,6 @@ XiFinalProject.Views.IceCreamsIndexItem = Backbone.View.extend({
 				}
 			})
 		} else {
-			debugger
 			bootbox.alert("Please sign in first.")
 		}
 	},

@@ -18,6 +18,7 @@
 //= require bootstrap
 //= require jquery.raty.min.js
 //= require bootbox.min.js
+//= require typeahead.js
 //= require xi_final_project
 //= require_tree ../templates
 //= require_tree ./models
