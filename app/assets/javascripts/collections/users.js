@@ -21,3 +21,4 @@ XiFinalProject.Collections.Users = Backbone.Collection.extend({
   }
 })
 
+

@@ -1,8 +1,6 @@
 <div id="sign-up">
 	<h1>WELCOME TO NICECREAM</h1>
 
-	<h2>Sign Up</h2>
-
 	<%= render "layouts/errors" %>
 
 	<form action="<%= users_url %>" method="post">
@@ -10,12 +8,12 @@
 	    Username
 	    <input class="rounded-corners" type="text" name="user[username]" value="">
 	  </label>
-
+	  <br>
 	  <label>
 	    Password
 	    <input class="rounded-corners" type="password" name="user[password]" value="">
 	  </label>
-
-	  <input type="submit" value="Sign Up">
+	  <br>
+	  <input class= "not-button" type="submit" value="Sign Up">
 	</form>
 </div>

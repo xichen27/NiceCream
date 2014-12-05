@@ -21,11 +21,11 @@ XiFinalProject.Views.UserReviewIndexItem = Backbone.View.extend({
 
 	myReview: function(){
 		var myRating = this.model.get("rating")
-			this.$("#my-rating-" + this.iceCream.id).raty({
-				readOnly: true,
-				start: myRating,
-				path: "/assets"
-			});
-		} 
+		this.$("#my-rating-" + this.iceCream.id).raty({
+			readOnly: true,
+			start: myRating,
+			path: "/assets"
+		});
+	} 
 
 });

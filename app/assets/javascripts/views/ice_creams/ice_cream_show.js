@@ -2,8 +2,9 @@ XiFinalProject.Views.IceCreamShow = Backbone.CompositeView.extend({
 
   template: JST['ice_creams/show'],
 
-  initialize: function(){
+  initialize: function(options){
   	this.reviews = this.model.reviews();
+    this.users = options.users;
   	this.listenTo(this.model, "sync", this.render);
   	this.listenTo(this.reviews, "sync", this.render);
   	this.listenTo(this.reviews, "add", this.addReview);
@@ -13,8 +14,8 @@ XiFinalProject.Views.IceCreamShow = Backbone.CompositeView.extend({
   },
 
   addReview: function(review){
-
-  	var reviewItem = new XiFinalProject.Views.ReviewIndexItem({model: review})
+    var user = this.users.getOrFetch(review.get("user_id"))
+  	var reviewItem = new XiFinalProject.Views.ReviewIndexItem({model: review, user: user})
   	this.addSubview(".reviews-list", reviewItem)
   },
 

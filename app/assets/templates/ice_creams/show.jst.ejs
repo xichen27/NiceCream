@@ -1,14 +1,22 @@
 
 <div class="ice-cream-show">
+
 	<div class="icecream-profile">
 		<img src="<%=ice_cream.get("image_url")%>" class="icecream">
-		<h2><%= ice_cream.get("flavor") %><h2>
-	</div>
-	<div class="two-columns">
-		<div class="reviews-list one-column clearfix">
+		<div class="icecream-info">
+			<h2><%= ice_cream.get("flavor") %></h2>
+			<p> Info </p>
 		</div>
+	</div>
 
+	<div class="two-columns">
+		<div class="tasty-reviews one-column">
+			<h3>Tasty Reviews</h3>
+			<div class="reviews-list clearfix">
+			</div>
+		</div>
 		<div class="friends-opinions one-column">
+			<h3>Friends' opinions</h3>
 		</div>
 	</div>
 </div>

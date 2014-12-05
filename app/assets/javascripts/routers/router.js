@@ -26,7 +26,7 @@ XiFinalProject.Routers.Router = Backbone.Router.extend({
 		var user = this.users.getOrFetch(id)
 		var userView = new XiFinalProject.Views.UserShow({
 			model: user,
-			iceCreams: this.iceCreams
+			iceCreams: this.iceCreams,
 		})
 		this.$rootEl.html(userView.render().$el)
 	},
@@ -42,7 +42,8 @@ XiFinalProject.Routers.Router = Backbone.Router.extend({
 	show: function(id){
 		var iceCream = this.iceCreams.getOrFetch(id)
 		var showView = new XiFinalProject.Views.IceCreamShow({
-			model: iceCream
+			model: iceCream,
+			users: this.users
 		})
 		this.$rootEl.html(showView.render().$el)
 	},

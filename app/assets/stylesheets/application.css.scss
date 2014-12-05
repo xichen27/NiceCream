@@ -49,8 +49,9 @@ body{
 }
 
 .one-column{
-	width: 450px;
-	float:left
+	width: 440px;
+	float:left;
+	margin-left: 10px
 }
 
 .two-columns{
@@ -81,9 +82,16 @@ img.icecream{
 	height: 120px
 }
 
-.refrigerated-ice-creams{
+.my-nice-box{
 	background: white;
-	border-radius: 15px
+	border-radius: 20px;
+	padding: 10px
+}
+
+.tasty-reviews{
+	background: white;
+	border-radius: 20px;
+	padding: 10px
 }
 
 .special-navbar {
@@ -122,6 +130,13 @@ p.shop{
 }
 
 .icecream-profile{
-	height: 100px;
+	height: 200px;
 	width: 910p;
+}
+
+#sign-up{
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
 }
