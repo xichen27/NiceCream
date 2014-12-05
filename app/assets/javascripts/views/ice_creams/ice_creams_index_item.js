@@ -16,7 +16,7 @@ XiFinalProject.Views.IceCreamsIndexItem = Backbone.View.extend({
 
 	redirect: function(){
 		if (!XiFinalProject.currentUser.id){
-			alert("Please sign in first.")
+			bootbox.alert("Please sign in first.")
 		}
 	},
 
@@ -37,7 +37,8 @@ XiFinalProject.Views.IceCreamsIndexItem = Backbone.View.extend({
 				}
 			})
 		} else {
-			alert("Please sign in first.")
+			debugger
+			bootbox.alert("Please sign in first.")
 		}
 	},
 
