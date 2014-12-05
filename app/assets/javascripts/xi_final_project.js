@@ -33,7 +33,36 @@ $(document).ready(function(){
 
 function installTypeahead () {
   // do your thing
-}
+  $('.form-group .typeahead').typeahead({
+    hint: true,
+    highlight: true,
+    minLength: 1
+  },
+  {
+    name: "flavors",
+    displayKey: "value",
+    source: substringMatcher(flavors)
+  });
+};
+
+var substringMatcher = function(strs){
+  return function findMatches(q, cb){
+    var matches, substrRegex;
+    matches = [];
+    substrRegex = new RegExp(q, "i");
+    $.each(strs, function(i, str){
+      if (substrRegex.test(str)){
+        matches.push({value: str});
+      }
+    });
+    cb(matches);
+  };
+};
+
+var flavors=["chocolate", "vanilla", "strawberry", "green tea", "coffee", 
+            "belgium chocolate", "cookie dough", "mango"];
+
+
 Backbone.CompositeView = Backbone.View.extend({
   addSubview: function (selector, subview) {
     this.subviews(selector).push(subview);
