@@ -7,6 +7,7 @@ XiFinalProject.Routers.Router = Backbone.Router.extend({
 		// this.currentUser = options. currentUser;
 	},
 
+
 	routes: {
 		"": "index",
 		"ice_creams/:id": "show",

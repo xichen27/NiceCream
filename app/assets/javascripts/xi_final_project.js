@@ -13,6 +13,8 @@ window.XiFinalProject = {
           .User(JSON.parse(_currentUserJSON));
     this.currentUser.fetch();
 
+    this.flavors = flavors;
+
     new XiFinalProject.Routers.Router({
     	$rootEl: $("#main"),
     	iceCreams: iceCreams,
@@ -29,11 +31,24 @@ $(document).ready(function(){
   installTypeahead();
 });
 
+// var flavors = new Bloodhound({
+//   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+//   queryTokenizer: Bloodhound.tokenizers.whitespace,
+//   // local: $.map(flavors, function(flavor){return {value: flavor};})
+//   prefetch: {
+//     url: "/api/ice_creams",
+//     filter: function(list){
+//       return $.map(list, function(flavor){ return {value: flavor};})
+//     }
+//   }
+// });
+
+// flavors.initialize();
+
 
 
 function installTypeahead () {
-  // do your thing
-  $('.form-group .typeahead').typeahead({
+  $('.typeahead').typeahead({
     hint: true,
     highlight: true,
     minLength: 1
@@ -59,8 +74,6 @@ var substringMatcher = function(strs){
   };
 };
 
-var flavors=["chocolate", "vanilla", "strawberry", "green tea", "coffee", 
-            "belgium chocolate", "cookie dough", "mango"];
 
 
 Backbone.CompositeView = Backbone.View.extend({

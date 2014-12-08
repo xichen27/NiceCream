@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = params[:user] ? User.new(params[:user]) : User.new_guest
     if @user.save
       sign_in(@user)
       redirect_to root_url
@@ -14,8 +14,8 @@ class UsersController < ApplicationController
     end
   end
 
-  private
-  def user_params
-    params.require(:user).permit(:password, :username)
-  end
+  # private
+  # def user_params
+  #   params.require(:user).permit(:password, :username)
+  # end
 end

@@ -1,5 +1,9 @@
 json.extract!(ice_cream, :id, :flavor, :creamery_id, :image_url)
 
+json.creamery  do |json|
+	json.(ice_cream.creamery, :id, :name)
+end
+
 json.average_rating ice_cream.average_rating
 
 json.reviews ice_cream.reviews do |json, review|
@@ -12,8 +16,4 @@ end
 
 json.fans ice_cream.fans do |json, fan|
 	json.extract!(fan, :id, :username)
-end
-
-json.creamery ice_cream.creamery do |json|
-	json.extract!(creamery, :id, :name, :location)
 end

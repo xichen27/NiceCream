@@ -8,13 +8,13 @@
 
 #ice-cream
 IceCream.create!(flavor: "chocolate", creamery_id: 1, image_url: "http://www.jamieoliver.com/core/images/jamie-mag/lrg_2838.jpg")
-IceCream.create!(flavor: "vanilla", creamery_id: 1, image_url: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTYga80wcEEzSMfl1m29jXs3gmdDuwQZSUk_B_FbtkJJC0aZX0Zgg")
-IceCream.create!(flavor: "strawberry", creamery_id: 1, image_url: "http://forum-media.finanzen.net/board/anonymize/attachment.m?aid=625503")
-IceCream.create!(flavor: "green tea", creamery_id: 1, image_url: "http://thucphamplaza.com/wp-content/uploads/products_img/Kem-Haagen-Dazs-vi-tra-xanh.jpg")
-IceCream.create!(flavor: "mango", creamery_id: 1, image_url: "http://images.tastespotting.com/thumbnails/547837.jpg")
-IceCream.create!(flavor: "cookie dough", creamery_id: 1, image_url: "http://www.braums.com/wp-content/uploads/2012/05/PremCaramelCookDough.png")
+IceCream.create!(flavor: "vanilla", creamery_id: 2, image_url: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTYga80wcEEzSMfl1m29jXs3gmdDuwQZSUk_B_FbtkJJC0aZX0Zgg")
+IceCream.create!(flavor: "strawberry", creamery_id: 3, image_url: "http://forum-media.finanzen.net/board/anonymize/attachment.m?aid=625503")
+IceCream.create!(flavor: "green tea", creamery_id: 4, image_url: "http://thucphamplaza.com/wp-content/uploads/products_img/Kem-Haagen-Dazs-vi-tra-xanh.jpg")
+IceCream.create!(flavor: "mango", creamery_id: 4, image_url: "http://images.tastespotting.com/thumbnails/547837.jpg")
+IceCream.create!(flavor: "cookie dough", creamery_id: 2, image_url: "http://www.braums.com/wp-content/uploads/2012/05/PremCaramelCookDough.png")
 IceCream.create!(flavor: "coffee", creamery_id: 1, image_url: "http://www.simplyrecipes.com/wp-content/uploads/2007/04/coffee-ice-cream.jpg")
-IceCream.create!(flavor: "belgium chocolate", creamery_id: 1, image_url: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcREtr75SQJvBXQ_QuzxD9y53QuPWOmJ3jiPD4SVxYX8PHuk8JP_qA")
+IceCream.create!(flavor: "belgium chocolate", creamery_id: 3, image_url: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcREtr75SQJvBXQ_QuzxD9y53QuPWOmJ3jiPD4SVxYX8PHuk8JP_qA")
 
 
 #reviews
@@ -39,6 +39,11 @@ User.create!(username: "user1", password: "password")
 User.create!(username: "user2", password: "password")
 User.create!(username: "user3", password: "password")
 User.create!(username: "xi", password: "password")
+
+Creamery.create!(name: "Ginos")
+Creamery.create!(name: "Hagen Daz")
+Creamery.create!(name: "Ben and Jerry's")
+Creamery.create!(name: "Red Mango")
 
 
 

@@ -1,4 +1,3 @@
-
 XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
 
   template: JST['users/show'],
@@ -9,13 +8,13 @@ XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
     this.iceCreams = options.iceCreams;
     // this.listenTo(this.model, "sync", this.render);
 
-  	this.listenTo(reviews, "add", this.addReview);
+    this.listenTo(reviews, "add", this.addReview);
     this.listenTo(this.refrigeratedIceCreams, "add", this.addRefrigeratedIceCream);
     this.listenTo(this.refrigeratedIceCreams, "remove", this.removeRefrigeratedIceCream);
 
-  	reviews.each(function(review){
-  		this.addReview(review)
-  	}.bind(this));
+    reviews.each(function(review){
+      this.addReview(review)
+    }.bind(this));
 
     this.refrigeratedIceCreams.each(function(refrigeratedIceCream){
       this.addRefrigeratedIceCream(refrigeratedIceCream)
@@ -26,11 +25,11 @@ XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
   addReview: function(review){
     var iceCreamID = review.get("ice_cream_id");
     var iceCream = this.iceCreams.getOrFetch(iceCreamID);
-  	var reviewShow = new XiFinalProject.Views.UserReviewIndexItem({ 
+    var reviewShow = new XiFinalProject.Views.UserReviewIndexItem({ 
       model: review, 
       iceCream: iceCream
     })
-  	this.addSubview("div.reviewed-ice-creams", reviewShow)
+    this.addSubview("div.reviewed-ice-creams", reviewShow)
   },
 
   removeRefrigeratedIceCream: function(iceCream){
@@ -55,13 +54,13 @@ XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   render: function(){
-  	var content = this.template({
+    var content = this.template({
       user: this.model, 
       currentUser: XiFinalProject.currentUser
     });
-  	this.$el.html(content);
-  	this.attachSubviews()
-  	return this;
+    this.$el.html(content);
+    this.attachSubviews()
+    return this;
   }
 
 });

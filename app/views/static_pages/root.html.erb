@@ -2,7 +2,12 @@
   <div id="main" class="clearfix"></div>
 </div>
 <script>
-var _currentUserJSON = '<%= current_user.to_json(only: [:id, :username]).html_safe %>';
+	var _currentUserJSON = '<%= current_user.to_json(only: [:id, :username]).html_safe %>';
+	var flavors = <%= IceCream.all.pluck(:flavor).to_json.html_safe %>;
+	var iceCreamsJson = <%= IceCream.all.to_json.html_safe %>;
+
+	var iceCreams = new XiFinalProject.Collections.IceCreams;
+	iceCreams.reset(iceCreamsJson);
 // debugger
 // $(XiFinalProject.initialize.bind(this));
 </script>

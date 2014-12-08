@@ -16,9 +16,41 @@ XiFinalProject.Collections.IceCreams = Backbone.Collection.extend({
   		ice_cream.fetch()
   	}
   	return ice_cream
-  }
+  },
+
+  // filters: {
+  
+  // },
+
+  // filteredResults: function () {
+  //   $('.typeahead').typeahead({
+  //     hint: true,
+  //     highlight: true,
+  //     minLength: 1
+  //   },
+  //   {
+  //     name: "flavors",
+  //     displayKey: "value",
+  //     source: substringMatcher(XiFinalProject.flavors)
+  //   });
+
+  //   var substringMatcher = function(strs){
+  //     return function findMatches(q, cb){
+  //       var matches, substrRegex;
+  //       matches = [];
+  //       substrRegex = new RegExp(q, "i");
+  //       $.each(strs, function(i, str){
+  //         if (substrRegex.test(str)){
+  //           matches.push({value: str});
+  //         }
+  //       });
+  //       cb(matches);
+  //     };
+  //   };
+   
+  //   return matches;
+  // },
+
 
 });
 
-
-XiFinalProject.Collections.iceCreams = new XiFinalProject.Collections.IceCreams()
