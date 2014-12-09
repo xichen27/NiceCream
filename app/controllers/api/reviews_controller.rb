@@ -19,16 +19,6 @@ module Api
 			params.require(:review).permit(:rating, :content, :user_id, :ice_cream_id)
 		end
 
-
-    # def current_ice_cream
-    #   if params[:id]
-    #     @review = Review.find(params[:id])
-    #     @ice_cream = @review.ice_cream
-    #   elsif params[:review]
-    #     @ice_cream = IceCream.find(params[:review][:ice_cream_id])
-    #   end
-    # end
-
 	end
 end
 

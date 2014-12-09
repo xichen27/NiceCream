@@ -6,13 +6,12 @@ XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
     var reviews = this.model.reviews();
     this.refrigeratedIceCreams = this.model.refrigeratedIceCreams();
     this.iceCreams = options.iceCreams;
-    this.recommendations = this.model.recommendations(this.iceCreams)
-    // this.listenTo(this.model, "sync", this.render);
+    this.recommendations = this.model.recommendations(this.iceCreams);
 
     this.listenTo(reviews, "add", this.addReview);
     this.listenTo(this.refrigeratedIceCreams, "add", this.addRefrigeratedIceCream);
     this.listenTo(this.refrigeratedIceCreams, "remove", this.removeRefrigeratedIceCream);
-    // this.listenTo(this.recommendations, "add", this.addRecommendedIceCream)
+    this.listenTo(this.recommendations, "add", this.addRecommendedIceCream)
     reviews.each(function(review){
       this.addReview(review)
     }.bind(this));
