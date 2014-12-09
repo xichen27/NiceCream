@@ -62,17 +62,21 @@ XiFinalProject.Models.User = Backbone.Model.extend({
 
 	recommendations: function(iceCreams){
 		var leftovers = new XiFinalProject.Collections.IceCreams([]);
+		if (iceCreams.length === 0){
+			return leftovers;
+		}
+		
 		iceCreams.each(function(iceCream){
       if (!this.refrigeratedIceCreams().get(iceCream.id) 
           && !this.reviewedIceCreams().get(iceCream.id)){
-        leftovers.set(iceCream)
+        leftovers.add(iceCream)
       }
     }.bind(this));
 
     var leftoverLength = leftovers.length;
     var recommendedIceCreams = new XiFinalProject.Collections.IceCreams([]);
     var index = Math.floor((Math.random()*leftoverLength) + 1)
-    recommendedIceCreams.set(leftovers.at(index-1));
+    recommendedIceCreams.add(leftovers.at(index-1));
     return recommendedIceCreams;
 
 	}

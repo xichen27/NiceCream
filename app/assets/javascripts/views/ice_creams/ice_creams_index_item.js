@@ -11,7 +11,7 @@ XiFinalProject.Views.IceCreamsIndexItem = Backbone.View.extend({
 
 	events: {
 		"click button": "saveFavorite",
-		"click div.my-rating": "redirect"
+		"click div.my-rating": "redirect",
 	},
 
 	redirect: function(){

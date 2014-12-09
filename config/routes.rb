@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   	resources :reviews, only: [:create, :show]
   	resources :refrigeratings, only: [:create, :destroy, :show]
   	resources :users
+  	resources :creameries, only: [:create]
   end
 end
 

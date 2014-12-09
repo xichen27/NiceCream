@@ -24,14 +24,14 @@ module Api
       params.require(:refrigerating).permit(:user_id, :ice_cream_id)
     end
 
-    def current_ice_cream
-      if params[:id]
-        @refrigerating = refrigerating.find(params[:id])
-        @ice_cream = @refrigerating.ice_cream
-      elsif params[:refrigerating]
-        @ice_cream = IceCream.find(params[:refrigerating][:ice_cream_id])
-      end
-    end
+    # def current_ice_cream
+    #   if params[:id]
+    #     @refrigerating = refrigerating.find(params[:id])
+    #     @ice_cream = @refrigerating.ice_cream
+    #   elsif params[:refrigerating]
+    #     @ice_cream = IceCream.find(params[:refrigerating][:ice_cream_id])
+    #   end
+    # end
 
 	end
 end

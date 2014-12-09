@@ -4,11 +4,10 @@ window.XiFinalProject = {
   Views: {},
   Routers: {},
   initialize: function() {
-  	var iceCreams = new XiFinalProject.Collections.IceCreams();
-  	iceCreams.fetch();
-    var users = new XiFinalProject.Collections.Users();
+  	var iceCreams = new XiFinalProject.Collections.IceCreams(JSON.parse(_iceCreamsJSON));
+    iceCreams.fetch();
+    var users = new XiFinalProject.Collections.Users(JSON.parse(_usersJSON));
     users.fetch();
-
     this.currentUser = new XiFinalProject.Models
           .User(JSON.parse(_currentUserJSON));
     this.currentUser.fetch();

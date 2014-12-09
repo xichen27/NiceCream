@@ -4,13 +4,23 @@ XiFinalProject.Views.IceCreamShow = Backbone.CompositeView.extend({
 
   initialize: function(options){
     this.reviews = this.model.reviews();
+
     this.users = options.users;
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.reviews, "sync", this.render);
     this.listenTo(this.reviews, "add", this.addReview);
+
     this.reviews.each(function(review){
       this.addReview(review)
     }.bind(this))
+  },
+
+  rating: function(){
+    this.$("#average-rating-" + this.model.id).raty({
+      readOnly: true,
+      start: this.model.get('average_rating'),
+      path: "/assets"
+    });
   },
 
   addReview: function(review){
@@ -22,7 +32,8 @@ XiFinalProject.Views.IceCreamShow = Backbone.CompositeView.extend({
   render: function(){
     var content = this.template({ice_cream: this.model});
     this.$el.html(content);
-    this.attachSubviews()
+    this.attachSubviews();
+    this.rating();
     return this;
   }
 

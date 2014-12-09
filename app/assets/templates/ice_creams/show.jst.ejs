@@ -4,7 +4,9 @@
 		<img src="<%=ice_cream.get("image_url")%>" class="icecream">
 		<div class="icecream-info">
 			<h2><%= ice_cream.get("flavor") %></h2>
-			<p> Info </p>
+			<p><div id="average-rating-<%= ice_cream.get('id') %>">
+			</div><p>
+			<h4> Creamery: <%= ice_cream.creamery().get("name") %> </h4>
 		</div>
 	</div>
 

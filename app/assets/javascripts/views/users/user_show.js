@@ -6,12 +6,14 @@ XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
     var reviews = this.model.reviews();
     this.refrigeratedIceCreams = this.model.refrigeratedIceCreams();
     this.iceCreams = options.iceCreams;
-    this.recommendations = this.model.recommendations(this.iceCreams);
 
     this.listenTo(reviews, "add", this.addReview);
     this.listenTo(this.refrigeratedIceCreams, "add", this.addRefrigeratedIceCream);
     this.listenTo(this.refrigeratedIceCreams, "remove", this.removeRefrigeratedIceCream);
-    this.listenTo(this.recommendations, "add", this.addRecommendedIceCream)
+    //this.listenTo(this.model.recommendations(this.iceCreams), "sync", this.addRecommendedIceCream)
+    this.listenTo(this.model, "sync", this.addAllRecommended)
+    this.listenTo(this.iceCreams, "sync", this.addAllRecommended)
+    // this.listenTo(this.model.reviewedIceCreams(), "add", this.addAllRecommended)
     reviews.each(function(review){
       this.addReview(review)
     }.bind(this));
@@ -21,7 +23,37 @@ XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
     }.bind(this));
     view = this;
 
-    this.recommendations.each(function(recommendedIceCream){
+    this.addAllRecommended();
+  },
+
+  events: {
+    "click button": "selectRecommended"
+  },
+
+  addAllRecommended: function(){
+    if (!this.model.get("username") 
+      || this.iceCreams.length === 0 
+      || this.subviews("div.recommended-ice-creams").length > 0
+      || this.refrigeratedIceCreams.length === 0
+      || this.model.reviewedIceCreams().length === 0
+      ){
+      return;
+    }
+    this.model.recommendations(this.iceCreams).each(function(recommendedIceCream){
+      this.addRecommendedIceCream(recommendedIceCream)
+    }.bind(this));
+  },
+
+
+  selectRecommended: function(event){
+    event.preventDefault();
+    var iceCreamID = $(event.currentTarget).data("ice-cream-id");
+    var removalIceCream = _.find(this.subviews("div.recommended-ice-creams"), function(subview){
+      return subview.model.id === iceCreamID
+    });
+    this.removeSubview("div.recommended-ice-creams", removalIceCream);
+    var availableIceCreams = this.iceCreams;
+    this.model.recommendations(availableIceCreams.remove(removalIceCream)).each(function(recommendedIceCream){
       this.addRecommendedIceCream(recommendedIceCream)
     }.bind(this));
   },
@@ -50,13 +82,6 @@ XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
     });
     this.removeSubview("div.refrigerated-ice-creams", removalIceCream)
   },
-
-  // removeCard: function(card){
-  //   var remove_card = _.find(this.subviews(".cards-list"), function(subview){
-  //     return subview.model === card;
-  //   });
-  //   this.removeSubview(".cards-list", remove_card)
-  // },
 
   addRefrigeratedIceCream: function(refrigeratedIceCream){
     var reviewItem = new XiFinalProject.Views.IceCreamsIndexItem({

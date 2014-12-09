@@ -2,7 +2,7 @@
 
 <div class="icecream-info">
 	<h3 class="flavor"><a href="#ice_creams/<%=ice_cream.get("id")%>">
-	<%= ice_cream.get("flavor") %></a></h3><p class="shop"> from Gino's</p>
+	<%= ice_cream.get("flavor") %></a></h3><p class="shop"> from <%= ice_cream.creamery().get("name") %> </p>
 	<br>
 	<div id="average-rating-<%= ice_cream.get('id') %>">
 		<p>Average rating</p>

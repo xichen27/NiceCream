@@ -19,6 +19,13 @@ XiFinalProject.Models.IceCream = Backbone.Model.extend({
 		return this._reviewers;
 	},
 
+	creamery: function(){
+		if(!this._creamery){
+			this._creamery = new XiFinalProject.Models.Creamery()
+		}
+		return this._creamery
+	},
+
 	parse: function(response){
 		if(response.reviews){
 			this.reviews().set(response.reviews, {parse: true});
@@ -29,6 +36,11 @@ XiFinalProject.Models.IceCream = Backbone.Model.extend({
 			this.reviewers().set(response.reviewers, {parse: true});
 			delete response.reviewers
 		};
+
+		if(response.creamery){
+			this.creamery().set(response.creamery, {parse: true});
+			delete response.creamery
+		}
 
 		return response
 	}
