@@ -21,6 +21,7 @@ XiFinalProject.Views.IceCreamsIndexItem = Backbone.View.extend({
 	},
 
 	saveFavorite: function(events){
+		var that = this
 		if(XiFinalProject.currentUser.id){
 			var iceCreamId = $(event.currentTarget).find("button").data("ice-cream-id");
 			var newRefrigerating = new XiFinalProject.Models.Refrigerating();
@@ -31,7 +32,7 @@ XiFinalProject.Views.IceCreamsIndexItem = Backbone.View.extend({
 				success: function(){
 					XiFinalProject.currentUser.refrigeratings().add(newRefrigerating)
 					XiFinalProject.currentUser.refrigeratedIceCreams().add(
-					XiFinalProject.Collections.iceCreams.getOrFetch(iceCreamId)
+					that.collection.getOrFetch(iceCreamId)
 					);
 
 				}
@@ -88,7 +89,7 @@ XiFinalProject.Views.IceCreamsIndexItem = Backbone.View.extend({
 						success: function(){
 							XiFinalProject.currentUser.reviews().add(newReview);
 							XiFinalProject.currentUser.reviewedIceCreams().add(
-							XiFinalProject.Collections.iceCreams.getOrFetch(that.model.id));
+							that.collection.getOrFetch(that.model.id));
 							oldRefrigerating.destroy();
 							XiFinalProject.currentUser.refrigeratedIceCreams().remove(that.model.id)
 						}

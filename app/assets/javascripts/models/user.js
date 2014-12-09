@@ -58,6 +58,8 @@ XiFinalProject.Models.User = Backbone.Model.extend({
 			delete response.reviews
 		}; 
 		return response
-	}
+	},
+
+
 
 });

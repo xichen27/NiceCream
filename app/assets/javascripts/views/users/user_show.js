@@ -48,7 +48,8 @@ XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
 
   addRefrigeratedIceCream: function(refrigeratedIceCream){
     var reviewItem = new XiFinalProject.Views.IceCreamsIndexItem({
-      model: refrigeratedIceCream
+      model: refrigeratedIceCream,
+      collection: this.iceCreams
     });
     this.addSubview("div.refrigerated-ice-creams", reviewItem)
   },
