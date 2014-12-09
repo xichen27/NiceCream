@@ -60,6 +60,20 @@ XiFinalProject.Models.User = Backbone.Model.extend({
 		return response
 	},
 
+	recommendations: function(iceCreams){
+		var leftovers = new XiFinalProject.Collections.IceCreams([]);
+		iceCreams.each(function(iceCream){
+      if (!this.refrigeratedIceCreams().get(iceCream.id) 
+          && !this.reviewedIceCreams().get(iceCream.id)){
+        leftovers.set(iceCream)
+      }
+    }.bind(this));
 
+    var leftoverLength = leftovers.length;
+    var recommendedIceCreams = new XiFinalProject.Collections.IceCreams([]);
+    var index = Math.floor((Math.random()*leftoverLength) + 1)
+    recommendedIceCreams.set(leftovers.at(index-1));
+    return recommendedIceCreams;
 
+	}
 });

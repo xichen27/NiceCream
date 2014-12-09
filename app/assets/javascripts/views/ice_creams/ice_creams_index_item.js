@@ -90,7 +90,7 @@ XiFinalProject.Views.IceCreamsIndexItem = Backbone.View.extend({
 							XiFinalProject.currentUser.reviews().add(newReview);
 							XiFinalProject.currentUser.reviewedIceCreams().add(
 							that.collection.getOrFetch(that.model.id));
-							oldRefrigerating.destroy();
+							oldRefrigerating && oldRefrigerating.destroy();
 							XiFinalProject.currentUser.refrigeratedIceCreams().remove(that.model.id)
 						}
 					})
