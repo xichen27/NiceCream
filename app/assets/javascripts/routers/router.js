@@ -4,7 +4,13 @@ XiFinalProject.Routers.Router = Backbone.Router.extend({
 		this.$rootEl = options.$rootEl;
 		this.iceCreams = options.iceCreams;
 		this.users = options.users;
-		// this.currentUser = options. currentUser;
+
+		$("#search").submit(function(event){
+			event.preventDefault();
+			var flavor = $(event.currentTarget).find("pre").text();
+			$('.typeahead').typeahead('val', '')
+			Backbone.history.navigate("#/search/"+flavor, {trigger: true})
+		})
 	},
 
 
@@ -13,14 +19,25 @@ XiFinalProject.Routers.Router = Backbone.Router.extend({
 		"ice_creams/:id": "show",
 		"users": "usersAll",
 		"users/:id": "userShow",
-		"home": "currentUserShow"
+		"home": "currentUserShow",
+		"search/*flavor": "search"
+	},
+
+	search: function(flavor){
+		var searchIceCreams = this.iceCreams.where({flavor: flavor});
+		var searchIceCreamsCollection = new XiFinalProject.Collections.IceCreams([]);
+		searchIceCreamsCollection.set(searchIceCreams)
+		var searchView = new XiFinalProject.Views.IceCreamsIndex({
+			collection: searchIceCreamsCollection
+		});
+		this._swapView(searchView);
 	},
 
 	index: function(){
 		var indexView = new XiFinalProject.Views.IceCreamsIndex({
 			collection: this.iceCreams
 		});
-		this.$rootEl.html(indexView.render().$el)
+		this._swapView(indexView)
 	},
 
 	userShow: function(id){
@@ -29,7 +46,7 @@ XiFinalProject.Routers.Router = Backbone.Router.extend({
 			model: user,
 			iceCreams: this.iceCreams,
 		})
-		this.$rootEl.html(userView.render().$el)
+		this._swapView(userView)
 	},
 
 	currentUserShow: function(){
@@ -37,7 +54,7 @@ XiFinalProject.Routers.Router = Backbone.Router.extend({
 			model: XiFinalProject.currentUser,
 			iceCreams: this.iceCreams
 		});
-		this.$rootEl.html(userView.render().$el)
+		this._swapView(userView)
 	},
 
 	show: function(id){
@@ -46,13 +63,19 @@ XiFinalProject.Routers.Router = Backbone.Router.extend({
 			model: iceCream,
 			users: this.users
 		})
-		this.$rootEl.html(showView.render().$el)
+		this._swapView(showView)
 	},
 
 	usersAll: function(){
 		var allUsers = new XiFinalProject.Views.UsersIndex({
 			collection: this.users
 		})
-		this.$rootEl.html(allUsers.render().$el)
-	}
+		this._swapView(allUsers)
+	},
+
+	_swapView: function (view) {
+    this.currentView && this.currentView.remove();
+    this.currentView = view;
+    this.$rootEl.html(view.render().$el);
+  },
 });
