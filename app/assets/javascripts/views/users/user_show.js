@@ -52,7 +52,9 @@ XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
       return subview.model.id === iceCreamID
     });
     this.removeSubview("div.recommended-ice-creams", removalIceCream);
+    
     var availableIceCreams = this.iceCreams;
+
     this.model.recommendations(availableIceCreams.remove(removalIceCream)).each(function(recommendedIceCream){
       this.addRecommendedIceCream(recommendedIceCream)
     }.bind(this));

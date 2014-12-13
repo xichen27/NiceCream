@@ -7,14 +7,23 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #ice-cream
-IceCream.create!(flavor: "chocolate", creamery_id: 1, image_url: "http://brackenfellpersonaltrainer.com/wp-content/uploads/sites/2/2013/11/chocolate-ice-cream.jpg")
-IceCream.create!(flavor: "vanilla", creamery_id: 2, image_url: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTYga80wcEEzSMfl1m29jXs3gmdDuwQZSUk_B_FbtkJJC0aZX0Zgg")
-IceCream.create!(flavor: "strawberry", creamery_id: 3, image_url: "http://forum-media.finanzen.net/board/anonymize/attachment.m?aid=625503")
-IceCream.create!(flavor: "green tea", creamery_id: 4, image_url: "http://thucphamplaza.com/wp-content/uploads/products_img/Kem-Haagen-Dazs-vi-tra-xanh.jpg")
-IceCream.create!(flavor: "mango", creamery_id: 4, image_url: "http://images.tastespotting.com/thumbnails/547837.jpg")
-IceCream.create!(flavor: "cookie dough", creamery_id: 2, image_url: "http://www.braums.com/wp-content/uploads/2012/05/PremCaramelCookDough.png")
-IceCream.create!(flavor: "coffee", creamery_id: 1, image_url: "http://www.simplyrecipes.com/wp-content/uploads/2007/04/coffee-ice-cream.jpg")
-IceCream.create!(flavor: "belgium chocolate", creamery_id: 3, image_url: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcREtr75SQJvBXQ_QuzxD9y53QuPWOmJ3jiPD4SVxYX8PHuk8JP_qA")
+IceCream.create!(flavor: "chocolate", creamery_id: 1, image_url: "https://s3-us-west-1.amazonaws.com/nicecreamsimages/chocolate-ice-cream-ginos.jpg")
+IceCream.create!(flavor: "vanilla", creamery_id: 2, image_url: "https://s3-us-west-1.amazonaws.com/nicecreamsimages/vanila-hagen-daz.jpeg")
+IceCream.create!(flavor: "strawberry", creamery_id: 3, image_url: "https://s3-us-west-1.amazonaws.com/nicecreamsimages/strawberry-ben-and-jerry.jpeg")
+IceCream.create!(flavor: "green tea", creamery_id: 4, image_url: "https://s3-us-west-1.amazonaws.com/nicecreamsimages/green-tea-red-mango.jpg")
+IceCream.create!(flavor: "mango", creamery_id: 4, image_url: "https://s3-us-west-1.amazonaws.com/nicecreamsimages/mango-red-mango.jpg")
+IceCream.create!(flavor: "cookie dough", creamery_id: 2, image_url: "https://s3-us-west-1.amazonaws.com/nicecreamsimages/cookie-dough-hagen-daz.png")
+IceCream.create!(flavor: "coffee", creamery_id: 1, image_url: "https://s3-us-west-1.amazonaws.com/nicecreamsimages/coffee-ginos.jpg")
+IceCream.create!(flavor: "chocolate", creamery_id: 2, image_url: "https://s3-us-west-1.amazonaws.com/nicecreamsimages/chocolate-hagen-daz.jpg")
+IceCream.create!(flavor: "vanilla", creamery_id: 5, image_url: "")
+IceCream.create!(flavor: "strawberry", creamery_id: 8 , image_url: "")
+IceCream.create!(flavor: "coffee", creamery_id: 7 , image_url: "")
+IceCream.create!(flavor: "green tea", creamery_id: 2, image_url: "")
+IceCream.create!(flavor: "cookie dough", creamery_id: 6 , image_url: "")
+IceCream.create!(flavor: "", creamery_id: , image_url: "")
+IceCream.create!(flavor: "", creamery_id: , image_url: "")
+IceCream.create!(flavor: "", creamery_id: , image_url: "")
+IceCream.create!(flavor: "", creamery_id: , image_url: "")
 
 
 #reviews
@@ -44,6 +53,12 @@ Creamery.create!(name: "Ginos")
 Creamery.create!(name: "Hagen Daz")
 Creamery.create!(name: "Ben and Jerry's")
 Creamery.create!(name: "Red Mango")
+Creamery.create!(name: "Cold Stone")
+Creamery.create!(name: "Baskin-Robbins")
+Creamery.create!(name: "Carvel")
+Creamery.create!(name: "San Francisco Creamery")
+
+
 
 
 

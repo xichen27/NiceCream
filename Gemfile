@@ -36,7 +36,6 @@ gem 'jbuilder', '~> 1.2'
 gem 'rails'
 gem 'sass-rails', '~> 4.0.0'
 gem 'pg'
-gem 'uglifier', '>= 1.3.0'
 
 
 group :development do
