@@ -7,12 +7,24 @@ XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
     this.refrigeratedIceCreams = this.model.refrigeratedIceCreams();
     this.iceCreams = options.iceCreams;
 
+    this.iceCreams.fetch({
+      success: function (response) {
+        this.model.fetch({
+          success: function (response) {
+            debugger
+            this.addAllRecommended();
+          }.bind(this)
+        })
+      }.bind(this)
+    })
+
     this.listenTo(reviews, "add", this.addReview);
     this.listenTo(this.refrigeratedIceCreams, "add", this.addRefrigeratedIceCream);
     this.listenTo(this.refrigeratedIceCreams, "remove", this.removeRefrigeratedIceCream);
     //this.listenTo(this.model.recommendations(this.iceCreams), "sync", this.addRecommendedIceCream)
-    this.listenTo(this.model, "sync", this.addAllRecommended)
-    this.listenTo(this.iceCreams, "sync", this.addAllRecommended)
+    // this.listenTo(this.model, "sync", this.addAllRecommended)
+    this.listenTo(this.model, "sync", this.render)
+    // this.listenTo(this.iceCreams, "sync", this.addAllRecommended)
     // this.listenTo(this.model.reviewedIceCreams(), "add", this.addAllRecommended)
     reviews.each(function(review){
       this.addReview(review)
@@ -23,7 +35,7 @@ XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
     }.bind(this));
     view = this;
 
-    this.addAllRecommended();
+    // this.addAllRecommended();
   },
 
   events: {
@@ -31,19 +43,18 @@ XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   addAllRecommended: function(){
-    if (!this.model.get("username") 
-      || this.iceCreams.length === 0 
-      || this.subviews("div.recommended-ice-creams").length > 0
-      || this.refrigeratedIceCreams.length === 0
-      || this.model.reviewedIceCreams().length === 0
-      ){
-      return;
-    }
+    // if (!this.model.get("username") 
+    //   || this.iceCreams.length === 0 
+    //   // || this.subviews("div.recommended-ice-creams").length > 0
+    //   // || this.refrigeratedIceCreams.length === 0
+    //   // || this.model.reviewedIceCreams().length === 0
+    //   ){
+    //   return;
+    // }
     this.model.recommendations(this.iceCreams).each(function(recommendedIceCream){
       this.addRecommendedIceCream(recommendedIceCream)
     }.bind(this));
   },
-
 
   selectRecommended: function(event){
     event.preventDefault();

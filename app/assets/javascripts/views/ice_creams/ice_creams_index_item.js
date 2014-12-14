@@ -50,7 +50,6 @@ XiFinalProject.Views.IceCreamsIndexItem = Backbone.View.extend({
 		this.averageRating();
 		this.myRating();
 
-
 		return this
 	},
 
@@ -78,6 +77,9 @@ XiFinalProject.Views.IceCreamsIndexItem = Backbone.View.extend({
 				start:0,
 				path: "/assets",
 				click: function(score, event){
+					if (!score) {
+						var score = parseInt($(event.currentTarget).attr('alt'));
+					};
 					var newReview = new XiFinalProject.Models.Review();
 					var oldRefrigerating = XiFinalProject.currentUser
 								.refrigeratings().findWhere({ ice_cream_id: that.model.id });

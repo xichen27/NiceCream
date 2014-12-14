@@ -11,6 +11,17 @@
 <%= render partial: "layouts/header" %>
 
 <%= yield %>
+ <script type="text/javascript"
+ 		src="//api.filepicker.io/v1/filepicker.js">
+ </script>
+
+ <script>
+   	$("button#guest-login").on("click", function(){
+			$('#user-name').val('xi');
+			$('#pass-word').val('password');
+			$('#sign-in').click();
+  	})
+  </script>
 
 </body>
 </html>

@@ -3,14 +3,15 @@
 
   <label>
     Username
-    <input class="rounded-corners" type="text" name="user[username]" value="">
+    <input id="user-name" class="rounded-corners" type="text" name="user[username]" value="">
   </label>
   <br>
   <label>
     Password
-    <input class="rounded-corners" type="password" name="user[password]" value="">
+    <input id="pass-word" class="rounded-corners" type="password" name="user[password]" value="">
   </label>
 
-  <button type="submit" class="not-button rounded-corners">Sign in</button>
+  <button id="sign-in" type="submit" class="not-button rounded-corners">
+    Sign in</button>
 </form>
 <%= render "layouts/errors" %>

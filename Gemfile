@@ -1,6 +1,4 @@
 source 'https://rubygems.org'
-
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 # Use postgresql as the database for Active Record
 # Use SCSS for stylesheets
@@ -36,7 +34,6 @@ gem 'jbuilder', '~> 1.2'
 gem 'rails'
 gem 'sass-rails', '~> 4.0.0'
 gem 'pg'
-
 
 group :development do
   gem 'annotate'

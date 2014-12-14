@@ -26,7 +26,9 @@
     <% else %>
       <div class="nav navbar-nav navbar-form">
         <li><%= render partial: "layouts/sessionform" %></li>
-        <li><%= link_to "Guest login", users_url, method: :post%></li>
+        <li> <button id="guest-login" type="submit" class="not-button rounded-corners">
+          Guest </button>
+      </li>
         <li><%= link_to "New?", new_user_url %></li>
       </div>
   <% end %>

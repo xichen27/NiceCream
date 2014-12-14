@@ -71,6 +71,17 @@ img.icecream{
   height: 150px;
 }
 
+img.avatar{
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  border: 8px solid #d89ec7;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  width: 150px;
+  height: 150px;
+	
+}
+
 .icecream-info{
 	width: 240px;
 	float: left;
@@ -105,7 +116,8 @@ img.icecream{
 
 .not-button{
 	background: none;
-	border: none
+	border: none;
+	padding-bottom: 0px
 }
 
 a{
