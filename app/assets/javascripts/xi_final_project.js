@@ -30,19 +30,6 @@ $(document).ready(function(){
   installTypeahead();
 });
 
-// var flavors = new Bloodhound({
-//   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
-//   queryTokenizer: Bloodhound.tokenizers.whitespace,
-//   // local: $.map(flavors, function(flavor){return {value: flavor};})
-//   prefetch: {
-//     url: "/api/ice_creams",
-//     filter: function(list){
-//       return $.map(list, function(flavor){ return {value: flavor};})
-//     }
-//   }
-// });
-
-// flavors.initialize();
 
 
 

@@ -4,16 +4,19 @@
   <title>XiFinalProject</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
   <%= csrf_meta_tags %>
+
+  <script>
+    filepicker.setKey("AZFWUwDTpmgQMlO9qN2cgz"); 
+  </script>
 </head>
 <body>
 
 <%= render partial: "layouts/header" %>
 
 <%= yield %>
- <script type="text/javascript"
- 		src="//api.filepicker.io/v1/filepicker.js">
- </script>
+
 
  <script>
    	$("button#guest-login").on("click", function(){

@@ -11,7 +11,6 @@ XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
       success: function (response) {
         this.model.fetch({
           success: function (response) {
-            debugger
             this.addAllRecommended();
           }.bind(this)
         })
@@ -21,11 +20,9 @@ XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
     this.listenTo(reviews, "add", this.addReview);
     this.listenTo(this.refrigeratedIceCreams, "add", this.addRefrigeratedIceCream);
     this.listenTo(this.refrigeratedIceCreams, "remove", this.removeRefrigeratedIceCream);
-    //this.listenTo(this.model.recommendations(this.iceCreams), "sync", this.addRecommendedIceCream)
-    // this.listenTo(this.model, "sync", this.addAllRecommended)
+
     this.listenTo(this.model, "sync", this.render)
-    // this.listenTo(this.iceCreams, "sync", this.addAllRecommended)
-    // this.listenTo(this.model.reviewedIceCreams(), "add", this.addAllRecommended)
+
     reviews.each(function(review){
       this.addReview(review)
     }.bind(this));
@@ -39,18 +36,27 @@ XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   events: {
+
+    "submit form": "updateImage",
     "click button": "selectRecommended"
   },
 
+  updateImage: function(event){
+    event.preventDefault();
+    var newImageUrl = $(event.currentTarget).serializeJSON().image.url;
+    var that = this;
+    this.model.set({"avatar_url": newImageUrl});
+    this.model.save({}, {
+      success: function(){
+        $('#myModal').modal('hide');
+        that.render();
+      }
+    });
+  },
+
+
   addAllRecommended: function(){
-    // if (!this.model.get("username") 
-    //   || this.iceCreams.length === 0 
-    //   // || this.subviews("div.recommended-ice-creams").length > 0
-    //   // || this.refrigeratedIceCreams.length === 0
-    //   // || this.model.reviewedIceCreams().length === 0
-    //   ){
-    //   return;
-    // }
+
     this.model.recommendations(this.iceCreams).each(function(recommendedIceCream){
       this.addRecommendedIceCream(recommendedIceCream)
     }.bind(this));
@@ -110,7 +116,8 @@ XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
       currentUser: XiFinalProject.currentUser
     });
     this.$el.html(content);
-    this.attachSubviews()
+    this.attachSubviews();
+    filepicker.constructWidget(this.$('.fp-new-avatar'));  
     return this;
   }
 
