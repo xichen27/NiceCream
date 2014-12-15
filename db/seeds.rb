@@ -21,7 +21,7 @@ IceCream.create!(flavor: "coffee", creamery_id: 7 , image_url: "https://s3-us-we
 IceCream.create!(flavor: "green tea", creamery_id: 2, image_url: "https://s3-us-west-1.amazonaws.com/nicecreamsimages/green-tea-hagen-daz.jpg")
 IceCream.create!(flavor: "cookie dough", creamery_id: 6 , image_url: "https://s3-us-west-1.amazonaws.com/nicecreamsimages/cookie-dough-baskin-robin.jpg")
 IceCream.create!(flavor: "strawberry cheesecake", creamery_id: 7 , image_url: "https://s3-us-west-1.amazonaws.com/nicecreamsimages/strawberry-cheesecake-carvel.jpg")
-IceCream.create!(flavor: "candy cane", creamery_id: 5, image_url: "https://s3-us-west-1.amazonaws.com/nicecreamsimages/rocky-road-cold-stone.jpg")
+IceCream.create!(flavor: "rocky road", creamery_id: 5, image_url: "https://s3-us-west-1.amazonaws.com/nicecreamsimages/rocky-road-cold-stone.jpg")
 # IceCream.create!(flavor: "", creamery_id: , image_url: "")
 # IceCream.create!(flavor: "", creamery_id: , image_url: "")
 
