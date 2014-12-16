@@ -1,28 +1,8 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+== NiceCreams
+An ice-cream recommendation app inspired by GoodReads
+- Single-page Backbone app consuming RESTful JSON Rails API
+- Real-time search page updates using Javascript typehead.js library
+- Bootstraps data on page load to avoid extra AJAX requests
+- Extends the Backbone View class with a custom CompositeView class to reduce re-rendering time
+- Overwrite the Model#parse method to access associations
+- Use eval to create assocation method to DRY the code
