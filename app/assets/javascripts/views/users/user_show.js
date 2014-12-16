@@ -32,12 +32,14 @@ XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
     }.bind(this));
     view = this;
 
+
     // this.addAllRecommended();
   },
 
   events: {
 
     "submit form": "updateImage",
+    // "click #next": "refresh",
     "click button": "selectRecommended"
   },
 
@@ -49,14 +51,16 @@ XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
     this.model.save({}, {
       success: function(){
         $('#myModal').modal('hide');
-        that.render();
+        $("body").removeClass("modal-open");
       }
     });
   },
 
+  // refresh: function(){
+  //   this.addAllRecommended()
+  // },
 
   addAllRecommended: function(){
-
     this.model.recommendations(this.iceCreams).each(function(recommendedIceCream){
       this.addRecommendedIceCream(recommendedIceCream)
     }.bind(this));
@@ -72,9 +76,7 @@ XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
     
     var availableIceCreams = this.iceCreams;
 
-    this.model.recommendations(availableIceCreams.remove(removalIceCream)).each(function(recommendedIceCream){
-      this.addRecommendedIceCream(recommendedIceCream)
-    }.bind(this));
+    this.addAllRecommended();
   },
 
   addRecommendedIceCream: function(recommendedIceCream){
@@ -117,9 +119,11 @@ XiFinalProject.Views.UserShow = Backbone.CompositeView.extend({
     });
     this.$el.html(content);
     this.attachSubviews();
-    filepicker.constructWidget(this.$('.fp-new-avatar'));  
+    setTimeout(function(){
+      filepicker.constructWidget(this.$('.fp-new-avatar')); 
+    }.bind(this), 0)
+
     return this;
   }
 
 });
-

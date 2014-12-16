@@ -49,6 +49,8 @@ body{
 	
 }
 
+
+
 .one-column{
 	width: 490px;
 	float:left;
@@ -77,6 +79,7 @@ img.avatar{
   border: 8px solid #d89ec7;
   width: 150px;
   height: 150px;
+  border-radius: 20px
 	
 }
 
@@ -119,7 +122,7 @@ img.avatar{
 .not-button{
 	background: none;
 	border: none;
-	padding-bottom: 0px
+	padding-bottom: 0px;
 }
 
 .not-button:hover{
